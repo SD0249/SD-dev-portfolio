@@ -4,7 +4,7 @@
 ## Custom Game Engine (C++) / Personal Project
 Unity and Unreal felt too comfortable, and since I want to know what is happening under-the-hood, I'm attempting to build a custom game engine from scratch in C++ to deepen my understanding of low-level systems programming and real-time application architecture. By this, I get to have full controls of the systems I'm working on!
 
-- Building using the **Win32 API** and **custom rendering loop**(in progress)
+- Building using the Win32 API and custom rendering loop(in-progress)
 - Attempting to implement an component-based-arhitecture
 - Focused on modularity and extendability for future physics and rendering systems, such as plug-ins like my physics engine
 - Current milestone: Window Management, Creating Game Loop, Application and Game Object Class\
