@@ -67,4 +67,4 @@ A work-in-progress website for showcasing technical projects visually, write-ups
   
 ---
 
-* This Portfolio is continuously updated as new systems and features are developed.
+*This Portfolio is continuously updated as new systems and features are developed.
