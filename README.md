@@ -7,7 +7,7 @@ Unity and Unreal felt too comfortable, and since I want to know what is happenin
 - Building using the Win32 API and custom rendering loop(in-progress)
 - Attempting to implement an component-based-arhitecture
 - Focused on modularity and extendability for future physics and rendering systems, such as plug-ins like my physics engine
-- Current milestone: Window Management, Creating Game Loop, Application and Game Object Class\
+- Current milestone: Window Management, Creating Game Loop, Application and Game Object Class
 
 [View Repository](https://github.com/SD0249/Demon-Engine)
 
