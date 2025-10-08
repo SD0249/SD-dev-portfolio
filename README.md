@@ -16,7 +16,7 @@ Unity and Unreal felt too comfortable, and since I want to know what is happenin
 ## Physics Engine (C++) / Personal Project
 Code Name: Faraday. 
 
-Currently on the process of developing a Math Library like OpenGL Mathematics(GLM), and planning to have Fixed Update Loops, with Numerical Integrations.
+Currently on the process of developing a Math Library like OpenGL Mathematics(GLM) comparing it to the results when run with the same value in GLM, and planning to have Fixed Update Loops, with Numerical Integrations. 
 
 ---
 
@@ -44,6 +44,10 @@ A Team Project with an objective to make a Top-Down Shooter game with the given 
 An on-going project for purposes to stay in-touch with my friend during the summer. At the previous project, Sweet Dreams, I have developed a Camera Class that was tied to the screen of the viewport, which was a bad design choice. Here, I worked with my friend who handled the render logic which rescales what the camera sees, and I have handled the Camera portion to only show the portion of the world, *decoupling the camera from the screen size*. That way, we were able to make the game run in full screen on any device!
 
 ![TechnicalDemoGIF of Camera Class](src/ScrollZoomCamera.gif)
+
+However, we had to import all the work to Unity, because the MonoGame 3.8.4 was having problems with its content builder. We haven't moved much content from the old repository to the new repository yet.
+
+[View Repository](https://github.com/SD0249/MysticMenu)
 
 ---
 
