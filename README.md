@@ -34,6 +34,7 @@ Located in this repository's Algorithms and Systems file
 ---
 
 ## Sweet Dreams (C#) / Academic Project
+A Team Project with an objective to make a Top-Down Shooter game with the given time frame, adapting to Game Development Processes. Handled Drawing Start and User Interface buttons, and implemented my first camera class, which leads to my passion to understand the matrices to better understand how camera works.
 
 [View Repository](https://github.com/SD0249/Sweet-Dreams_SugarRush)
 
