@@ -7,7 +7,7 @@ Unity and Unreal felt too comfortable, and since I want to know what is happenin
 - Building using the Win32 API and custom rendering loop(in-progress)
 - Attempting to implement an component-based-arhitecture
 - Focused on modularity and extendability for future physics and rendering systems, such as plug-ins like my physics engine
-- Current milestone: Window Management, Creating Game Loop, Application and Game Object Class\
+- Current milestone: Window Management, Creating Game Loop, Application and Game Object Class
 
 [View Repository](https://github.com/SD0249/Demon-Engine)
 
@@ -41,8 +41,9 @@ A Team Project with an objective to make a Top-Down Shooter game with the given 
 ---
 
 ## Mistique Menu (C#) / Personal Project
+An on-going project for purposes to stay in-touch with my friend during the summer. At the previous project, Sweet Dreams, I have developed a Camera Class that was tied to the screen of the viewport, which was a bad design choice. Here, I worked with my friend who handled the render logic which rescales what the camera sees, and I have handled the Camera portion to only show the portion of the world, *decoupling the camera from the screen size*. That way, we were able to make the game run in full screen on any device!
 
-![TechnicalDemoGIF of Camera Class]
+![TechnicalDemoGIF of Camera Class](src/ScrollZoomCamera.gif)
 
 ---
 
