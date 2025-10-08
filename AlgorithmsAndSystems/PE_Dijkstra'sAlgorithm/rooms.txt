@@ -1,0 +1,20 @@
+------------------------
+--- Room Information ---
+------------------------
+kitchen|Large enough to prepare a feast
+dining|A huge table for sixteen has gold place settings
+library|This library is packed with floor-to-ceiling bookshelves
+conservatory|The glass wall allows sunlight to reach the plants here
+hall|The main hall is central to the house
+deck|This covered deck looks over the landscaped grounds
+exit|Cobblestone pathway leads you to the gardens
+-----------------------------
+--- Adjacency Information ---
+-----------------------------
+hall|dining$2,conservatory$9,deck$17
+library|kitchen$3,conservatory$2
+dining|kitchen$1,hall$2
+kitchen|dining$1,library$3
+conservatory|library$2,deck$1,hall$9
+deck|hall$17,conservatory$1,exit$3
+exit|deck$3
