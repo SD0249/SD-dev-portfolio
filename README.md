@@ -42,7 +42,7 @@ A Team Project with an objective to make a Top-Down Shooter game with the given 
 
 ## Mistique Menu (C#) / Personal Project
 
-![TechnicalDemoGIF of Camera Class]
+![TechnicalDemoGIF of Camera Class](src/ScrollZoomCamera.gif)
 
 ---
 
