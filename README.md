@@ -51,6 +51,13 @@ However, we had to import all the work to Unity, because the MonoGame 3.8.4 was 
 
 ---
 
+## Plinko (Unity - C#) / Academic Project
+Here, I wanted to utilized the skills I have learned from my 2D Animation and Assets Production Class. Besides some pegs and wall sprites, I have drawn all of the sprites including the bucket(FlyTrap) and the Fly(Chip). It was a nice project to get used to Unity's Component-based System, and seeing my own animation in result was rewarding!
+
+[Play Game in Web!](https://igme-202-2251.github.io/202-work-SD0249/Project_01/)
+
+---
+
 ## Personal Portfolio Website
 A work-in-progress website for showcasing technical projects visually, write-ups, including visual demos.
 
