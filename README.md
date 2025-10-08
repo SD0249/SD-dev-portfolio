@@ -29,7 +29,7 @@ Includes:
 - Data structure experiments (queues, stacks, trees)
 - Designed for problem-solving and systems design understanding
 
-Located in this repository's Algorithms and Systems file
+Located in this repository's [Algorithms and Systems](AlgorithmsAndSystems) file
 
 ---
 
