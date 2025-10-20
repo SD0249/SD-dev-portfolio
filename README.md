@@ -64,7 +64,7 @@ I took the role of product management and main character artist in this Game Jam
 [View Repository](https://github.com/SD0249/Ticket-To-Terror-Station/tree/New-Branch)
 
 ![MainCharacterWalk](src/WalkGIF.gif)
-![MainCharacterClimb](src/Climb.gif)
+![MainCharacterClimb](src/ClimbGIF.gif)
 
 ---
 
