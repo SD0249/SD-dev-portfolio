@@ -16,7 +16,8 @@ Unity and Unreal felt too comfortable, and since I want to know what is happenin
 ## Physics Engine (C++) / Personal Project
 Code Name: Faraday. 
 
-Currently on the process of developing a Math Library like OpenGL Mathematics(GLM) comparing it to the results when run with the same value in GLM, and planning to have Fixed Update Loops, with Numerical Integrations. 
+Currently on the process of developing a Math Library like OpenGL Mathematics(GLM) comparing it to the results when run with the same value in GLM, and planning to have Fixed Update Loops, with Numerical Integrations. <br/>
+-> Since I am going to use OpenGL, I realized that it would be nicer if I learned how to use OpenGL rather than trying to study as I go.
 
 ---
 
@@ -82,8 +83,9 @@ A work-in-progress website for showcasing technical projects visually, write-ups
 - Working on input handling and basic rendering using Win32 API
 
 **Physics Engine**
-- Building Math Library for use
+- Building Math Library for use with visual debugger using OpenGL
 - Reading free class resource files from NewCastle MS Program related to Physics Engine Design
+- Priority Goal: Learn about OpenGL first instead of studying it while I build the project!
 
 **NPC World**
 - Building a simulation of a themed world using concepts of Autonomous Agents.
