@@ -71,7 +71,7 @@ I took the role of product management and main character artist in this Game Jam
 ## Personal Portfolio Website
 A work-in-progress website for showcasing technical projects visually, write-ups, including visual demos.
 
-[Coming Soon]
+[Portfolio_Website_In_Progress](https://people.rit.edu/al7798/235/project1/)
 
 ---
 
@@ -85,9 +85,10 @@ A work-in-progress website for showcasing technical projects visually, write-ups
 - Building Math Library for use
 - Reading free class resource files from NewCastle MS Program related to Physics Engine Design
 
-**Make-Your-Own Pong**
-- A personal class project that implements Pong with additional features.
-
+**NPC World**
+- Building a simulation of a themed world using concepts of Autonomous Agents.
+- Understanding and implementing Reynold's Steering algorithms to generate complex behaviors
+  
 ---
 
 *This Portfolio is continuously updated as new systems and features are developed.
