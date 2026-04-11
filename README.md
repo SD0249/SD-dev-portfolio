@@ -1,4 +1,17 @@
 # SD-dev-portfolio
+
+---
+
+## Menos (C#) / Personal Project
+Menos is a personal project that I've been working on during Spring 2026, and it is a Greek Murder Mystery Puzzle game. I worked on implementing the Journal UI System, where the player is able to take notes, check collected evidences, tag relevant suspects to each evidence, and check each character's relationship status with the main character. There are still features that need to be added, such as map and settings panel, and also bug fixes. Also I worked on writing the baseline and the events of the story, providing the foundation our narrative designer can work. 
+
+[Video used for MAGIC Maker Application](https://drive.google.com/file/d/1HSTR84nmVCCXKuZ508zF2Bev0CGL8jr_/view?usp=drive_link)
+
+---
+
+## The Adventure of the Speckled Band (C#) / Academic Project
+In this project, I tried to make a walk simulator into a game by integrating environmental storytelling where the player has to go through the environment and discover evidences as Dr. Watson, uncovering the secrets behind a mysterious death. The custom character controller script is not as perfect as the Unity character controller script, as it has some issues of tilting when colliding with the wall, but I learnt a lot while debugging this. Also I designed the mansion with two floors and two rooms, where evidences are hidden. Overall, this was not only an academic project but a passion project, but I do need to be better with scoping next time.
+
 ---
 
 ## Custom Game Engine (C++) / Personal Project
@@ -6,31 +19,10 @@ Unity and Unreal felt too comfortable, and since I want to know what is happenin
 
 - Building using the Win32 API and custom rendering loop(in-progress)
 - Attempting to implement an component-based-arhitecture
-- Focused on modularity and extendability for future physics and rendering systems, such as plug-ins like my physics engine
+- Focused on modularity and extendability for future physics and rendering systems
 - Current milestone: Window Management, Creating Game Loop, Application and Game Object Class
 
 [View Repository](https://github.com/SD0249/Demon-Engine)
-
----
-
-## Physics Engine (C++) / Personal Project
-Code Name: Faraday. 
-
-Currently on the process of developing a Math Library like OpenGL Mathematics(GLM) comparing it to the results when run with the same value in GLM, and planning to have Fixed Update Loops, with Numerical Integrations. <br/>
--> Since I am going to use OpenGL, I realized that it would be nicer if I learned how to use OpenGL rather than trying to study as I go.
-
----
-
-## Algorithms & Systems (C#) / Academic Projects
-A collection of algorithm and systems programming exercises exploring foundational CS topics.
-
-Includes:
-- Graph search algorithms (BFS, DFS)
-- Sorting and Pathfinding implementations
-- Data structure experiments (queues, stacks, trees)
-- Designed for problem-solving and systems design understanding
-
-Located in this repository's [Algorithms and Systems](AlgorithmsAndSystems) file
 
 ---
 
@@ -69,28 +61,35 @@ I took the role of product management and main character artist in this Game Jam
 
 ---
 
-## Personal Portfolio Website
-A work-in-progress website for showcasing technical projects visually, write-ups, including visual demos.
+## Algorithms & Systems (C#) / Academic Projects
+A collection of algorithm and systems programming exercises exploring foundational CS topics.
 
-[Portfolio_Website_In_Progress](https://people.rit.edu/al7798/235/project1/)
+Includes:
+- Graph search algorithms (BFS, DFS)
+- Sorting and Pathfinding implementations
+- Data structure experiments (queues, stacks, trees)
+- Designed for problem-solving and systems design understanding
+
+Located in this repository's [Algorithms and Systems](AlgorithmsAndSystems) file
 
 ---
 
 ## Current Project Focus
 
+**Cat Punch**
+- For RITxKCG Game Jam. 
+- Implementing the UI Menu Layout in Unity
+- Making a 'Mouse' Entity in Unity with its basis on Autonomous Agents, 
+
+**OpenGL**
+- Learning the Graphics API with a goal to understand how graphics are generated
+- Learning to use libraries such as GLFW and GLAD
+- Located in this repository's [OpenGL](OpenGL) file
+
 **Custom Game Engine**
 - Implementing a component-based architecture to handle multiple game objects efficiently
 - Working on input handling and basic rendering using Win32 API
 
-**Physics Engine**
-- Building Math Library for use with visual debugger using OpenGL
-- Reading free class resource files from NewCastle MS Program related to Physics Engine Design
-- Priority Goal: Learn about OpenGL first instead of studying it while I build the project!
-
-**NPC World**
-- Building a simulation of a themed world using concepts of Autonomous Agents.
-- Understanding and implementing Reynold's Steering algorithms to generate complex behaviors
-  
 ---
 
 *This Portfolio is continuously updated as new systems and features are developed.
