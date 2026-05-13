@@ -106,11 +106,11 @@ int main() {
 	unsigned int vertexShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);	// Provide the type of shader 
 	// we want to create as an argument to glCreateShader
-// Attach shader source code to shader object
+    // Attach shader source code to shader object
 	glShaderSource(vertexShader, // Shader object to compile
-		1,			 // Specifies how many strings we are passing as a source code (only one) 
-		&vertexShaderSource,	// Actual source code of the vertex shader
-		NULL);
+		1,						 // Specifies how many strings we are passing as a source code (only one) 
+		&vertexShaderSource,	 // Actual source code of the vertex shader
+		NULL);					 // Specifies an array of string lengths
 	glCompileShader(vertexShader);
 
 	// Check if compilation was successful (Compile Time error check)
