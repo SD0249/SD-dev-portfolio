@@ -267,13 +267,13 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);			// Pass in buffer bits to specify which buffer we would like to clear
 		// State-Using function (ex. Uses current state to retrieve the clearing color from)
 
+		// Draw first triangle
 		// Activate Shader Program object 
 		glUseProgram(firstShaderProgram);		// Every shader & rendering call after glUseProgram will now use this program object
-		// Draw first triangle
 		glBindVertexArray(VAOs[0]);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-		glUseProgram(secondShaderProgram);
 		// Draw Second Triangle
+		glUseProgram(secondShaderProgram);
 		glBindVertexArray(VAOs[1]);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
