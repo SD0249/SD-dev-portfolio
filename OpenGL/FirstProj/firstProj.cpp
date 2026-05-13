@@ -1,8 +1,8 @@
 // There are many different versions of OpenGL drivers
 // The location of most of its functions is not known at compile-time
 // and needs to be queried at run-time. 
-// Developer needs to retrieve the location of the function -> store it in function pointers for later use.
-// GLAD does this for us!
+// Developer needs to retrieve the location of the function (glfwGetProcAddress | Returns GLADloadproc type function but cast it just in case)
+// -> store it in function pointers for later use. GLAD does this for us! (gladLoadGLLoader)
 
 // Be sure to include GLAD before GLFW.
 // The include file for GLAD includes
@@ -88,7 +88,7 @@ int main() {
 
 
 	// ---------------------------------------------------------------------
-	// Use GLAD to retrieve OpenGL functions & Create function pointers
+	// Use GLFW to retrieve OpenGL functions & Use GLAD to create function pointers
 	// ---------------------------------------------------------------------
 	// Pass GLAD the function to load the address of the OpenGL function pointers which is OS-specific.
 	// glfwGetProcAddress defines the correct function based on which OS we're compiling for
@@ -265,6 +265,7 @@ int main() {
 
 	// ---------------------------------------------------------------------
 	// Setting GL Viewport
+	// --> Not needed because SetFramebufferSizeCallback is called and resizes the window
 	// ---------------------------------------------------------------------
 	// Before we start rendering - Tell OpenGL the size of the rendering window!!
 	// How we want to display data and coordinates with respect to the window
