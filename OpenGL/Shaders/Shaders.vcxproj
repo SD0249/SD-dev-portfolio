@@ -21,6 +21,16 @@
   <ItemGroup>
     <ClCompile Include="Shaders.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.fs" />
+    <None Include="shader.vs" />
+    <None Include="shaderEx1.vs" />
+    <None Include="shaderEx2.vs" />
+    <None Include="shaderEx3.vs" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

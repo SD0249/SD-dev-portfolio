@@ -10,6 +10,8 @@
 #include <iostream>
 using namespace std;
 
+#include "Shader.h"
+
 // ** Helper function declaration **
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -52,7 +54,10 @@ const unsigned int SCR_HEIGHT = 600;
 //		* Requires a vec4 color output variable (final output color).
 //			* If not specified, the color buffer output for those fragments will be undefined 
 //			  (OpenGL will render them either black or white) 
-// 
+//		* Fragment Interpolation: When rendering, the rasterization stage usually results
+//								  in a lot more fragments than vertices originally specified
+//			* The rasterizer then determines the POSITIONS of each of those fragments 
+//			* Based on positions, it interpolates all the fragment shader's input variables
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // [ TYPES ] Default Basic Types we know from C: int, float, double, uint, bool
 //		Newly added! --> Vector & Matrices
@@ -109,20 +114,24 @@ const unsigned int SCR_HEIGHT = 600;
 //	  If it isn't used anywhere, the compiler will silently remove the variable from the compiled
 //	  version which is the cause for several frustrating errors!
 // ---------------------------------------------------------------------
-const char* vertexShaderSource = "#version 330 core\n"
-								"layout (location = 0) in vec3 aPos;\n"	// Attribute position 0
-								"void main()\n"
-								"{\n"
-								"	  gl_Position = vec4(aPos, 1.0);\n"
-								"}\0";
-
-const char* fragmentShaderSource = "#version 330 core\n"
-								"out vec4 FragColor;\n"	
-								"uniform vec4 ourColor;\n"	// We set this variable in the OpenGL code.			
-								"void main()\n"
-								"{\n"
-								"	  FragColor = ourColor;\n"
-								"}\0";
+//const char* vertexShaderSource = "#version 330 core\n"
+//								"layout (location = 0) in vec3 aPos;\n"		// Attribute position 0
+//								"layout (location = 1) in vec3 aColor;\n"	// Attribute position 1
+//								"out vec3 ourColor;\n"						// Output a color to the fragment shader
+//								"void main()\n"
+//								"{\n"
+//								"	  gl_Position = vec4(aPos, 1.0);\n"
+//								"	  ourColor = aColor;"	// Set our color to the input color we got from the vertex data		
+//								"}\0";
+//
+//const char* fragmentShaderSource = "#version 330 core\n"
+//								"out vec4 FragColor;\n"	
+//								"in vec3 ourColor;\n"				
+//								"void main()\n"
+//								"{\n"
+//								"	  FragColor = vec4(ourColor, 1.0);\n"
+//								"}\0";
+// --> No need to use this after making shader class!!!
 
 int main() {
 	// ---------------------------------------------------------------------
@@ -161,56 +170,23 @@ int main() {
 	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
 	cout << "Maximum number of vertex attributes supported: " << nrAttributes << endl;*/
 
-	// Vertex Shader
-	unsigned int vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
-
-	int success;
-	char infoLog[512];
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << endl;
-	}
-
-	// Fragment Shader
-	unsigned int fragmentShader;
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
-
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-		cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << endl;
-	}
-
-	// Create Shader Program
-	unsigned int shaderProgram;
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
-
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << endl;
-	}
-
-	// Make sure to delete shader objects once linking them to the project
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	// Create Shader using Shader class
+	Shader ourShader("shaderEx3.vs", "shader.fs");
 
 	// ---------------------------------------------------------------------
 	// Set up VERTEX data (and buffer(s)) and configure vertex attributes
 	// ---------------------------------------------------------------------
 	float vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.0f,  0.5f, 0.0f
+		// Positions		 // Colors
+		-0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,	// Bottom Right (Red)
+		 0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,	// Bottom Left	(Green)
+		 0.0f,  0.5f, 0.0f,	 0.0f, 0.0f, 1.0f	// Top			(Blue)
+	};	// This triangles's pixels it probably contains around 50000 fragments
+
+	float shaderEx3[] = {
+		-0.5f, -0.5f, 0.0f,	// Bottom Left --> This value is interpreted as black because its values are clamped to a valid range of 0f to 1f.
+		 0.5f, -0.5f, 0.0f,	// Bottom Right
+		 0.0f,  0.5f, 0.0f	// Top
 	};
 
 	unsigned int VBO, VAO;
@@ -219,10 +195,23 @@ int main() {
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
+	glBufferData(GL_ARRAY_BUFFER, sizeof(shaderEx3), shaderEx3, GL_STATIC_DRAW);
+	
+	// Exercise 3
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	// Tutorial
+	// Position Attribute
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 
+	//					 (void*)0); // For EACH vertex, the position vertex attribute is first so we declare an offset of 0
+	//glEnableVertexAttribArray(0);
+
+	//// Color Attribute
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 
+	//					 (void*)(3 * sizeof(float)));	// The color attribute starts after the position data
+	//glEnableVertexAttribArray(1);
+
 	glBindVertexArray(0);	// Unbinding VAO
 
 
@@ -239,14 +228,17 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// BE SURE TO ACTIVATE THE SHADER before accessing its uniform val
-		glUseProgram(shaderProgram);	// Use program
+		ourShader.use();	// Use shader program through shader class
 
 		// Use uniform value to gradually change the color of the triangle over time
-		float timeValue = glfwGetTime();
+		/*float timeValue = glfwGetTime();
 		float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
 		int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);	// Then update the value of uniform variable on the CURRENTLY ACTIVE shader program
+		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);*/	// Then update the value of uniform variable on the CURRENTLY ACTIVE shader program
 		
+		// Exercise 2
+		// ourShader.setFloat("horizontalOffset", 0.2);
+
 		// Now render the triangle
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
